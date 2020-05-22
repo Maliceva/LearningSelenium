@@ -30,14 +30,3 @@ driver.find_element_by_css_selector(".promoBtn").click()
 
 # Verify if the promo code was successfully applied
 print(driver.find_element_by_css_selector("span.promoInfo").text)
-
-
-
-
-
-
-
-
-
-
-

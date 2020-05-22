@@ -53,6 +53,9 @@ print(cartPageList)
 # Test fails if items added to cart are not found inside the cart
 assert addedToCartList == cartPageList
 
+# Get the discount amount prior to entering the promo code
+originalAmount = driver.find_element_by_css_selector(".discountAmt").text
+
 # Enter promo code and click Apply
 driver.find_element_by_class_name("promoCode").send_keys("rahulshettyacademy")
 driver.find_element_by_css_selector(".promoBtn").click()
@@ -62,6 +65,13 @@ wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "sp
 
 # Verify if the promo code was successfully applied
 print(driver.find_element_by_css_selector("span.promoInfo").text)
+
+# Validate the Discount and new Total Amount after applying promo code
+discountAmount = driver.find_element_by_css_selector(".discountAmt").text
+
+# Discounted total should always be less than the original total
+# Note: must convert to float since it's saved as a string
+assert float(discountAmount) < float(originalAmount)
 
 
 

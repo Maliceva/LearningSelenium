@@ -1,5 +1,6 @@
 # Explicit wait - target a specific element and only wait for it to load
 # Must be applied individually, is not global
+# Use when you know a particular process will take a while (waiting for filters to be applied, for example)
 
 import time
 from selenium import webdriver

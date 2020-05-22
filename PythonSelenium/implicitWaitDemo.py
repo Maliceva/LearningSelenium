@@ -1,4 +1,5 @@
 # Implicit wait - wait for the driver object to finish the current step of the test (globally applied)
+# Use on test environments that perform slowly in general (long wait) or when you have a performance metric to hit (short wait)
 # pause the test using the time class in Python
 import time
 from selenium import webdriver
@@ -30,3 +31,14 @@ driver.find_element_by_css_selector(".promoBtn").click()
 
 # Verify if the promo code was successfully applied
 print(driver.find_element_by_css_selector("span.promoInfo").text)
+
+
+
+
+
+
+
+
+
+
+

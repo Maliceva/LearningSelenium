@@ -1,7 +1,3 @@
-# Explicit wait - target a specific element and only wait for it to load
-# Must be applied individually, is not global
-# Use when you know a particular process will take a while (waiting for filters to be applied, for example)
-
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -11,7 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 driver = webdriver.Chrome(executable_path="/Users/cassandra.reitz/PycharmProjects/chromedriver")
 driver.get('https://rahulshettyacademy.com/seleniumPractise/#/')
 
-wait = WebDriverWait(driver, 5) # Pass driver and number of seconds to wait
+wait = WebDriverWait(driver, 10) # Pass driver and number of seconds to wait
 addedToCartList = [] # Create an empty list for use later
 cartPageList = []
 
@@ -72,6 +68,19 @@ discountAmount = driver.find_element_by_css_selector(".discountAmt").text
 # Discounted total should always be less than the original total
 # Note: must convert to float since it's saved as a string
 assert float(discountAmount) < float(originalAmount)
+
+# Validate the sum of all line items
+lineItemTotals = driver.find_elements_by_xpath("//tr/td[5]/p")
+sum = 0
+for total in lineItemTotals:
+    sum = sum + int(total.text) #160 + 180 = 340
+
+print("Sum of product totals in cart:")
+print(sum)
+
+totalAmount = int(driver.find_element_by_class_name("totAmt").text)
+
+assert sum == totalAmount
 
 
 

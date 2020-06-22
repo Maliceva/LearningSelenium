@@ -1,8 +1,9 @@
 # Use a generic locator to perform a test on all elements of a page at once (click all checkboxes)
 
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
-driver = webdriver.Chrome(executable_path="/Users/cassandra.reitz/PycharmProjects/chromedriver")
+driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get('https://rahulshettyacademy.com/AutomationPractice/')
 
 # Get all checkboxes on the page

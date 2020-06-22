@@ -1,11 +1,15 @@
-from selenium import webdriver
 # Browser exposes an executable file
 # Through Selenium test, we need to invoke the executable file which will then invoke the actual browser
 # Download drivers from https://www.selenium.dev/downloads/ and save them somewhere, then pass in the filepath:
 #driver = webdriver.Chrome(executable_path="/Users/cassandra.reitz/PycharmProjects/chromedriver") # Chrome
 #driver = webdriver.Firefox(executable_path="/Users/cassandra.reitz/PycharmProjects/geckodriver") # Firefox
-driver = webdriver.Safari(executable_path="/usr/bin/safaridriver") # Safari
+#driver = webdriver.Safari(executable_path="/usr/bin/safaridriver") # Safari
+# You can also use webdriver-manager to install the webdriver at runtime if none is saved locally
 
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 driver.get("https://www.shoebacca.com/") # Go to a specific site
 

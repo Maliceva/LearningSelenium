@@ -13,9 +13,9 @@
 
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
+from webdriver_manager.chrome import ChromeDriverManager
 
-#driver = webdriver.Chrome(executable_path="/Users/cassandra.reitz/PycharmProjects/chromedriver") # Chrome
-driver = webdriver.Firefox(executable_path="/Users/cassandra.reitz/PycharmProjects/geckodriver") # Firefox
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 driver.get("https://rahulshettyacademy.com/angularpractice")
 

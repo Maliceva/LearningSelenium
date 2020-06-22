@@ -3,8 +3,10 @@
 # pause the test using the time class in Python
 import time
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
-driver = webdriver.Chrome(executable_path="/Users/cassandra.reitz/PycharmProjects/chromedriver")
+driver = webdriver.Chrome(ChromeDriverManager().install())
+
 driver.implicitly_wait(3) # maximum wait time for 3 seconds for each step (not 3 seconds for each step)
 driver.get('https://rahulshettyacademy.com/seleniumPractise/#/')
 

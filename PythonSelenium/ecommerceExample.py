@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-driver = webdriver.Chrome(executable_path="/Users/cassandra.reitz/PycharmProjects/chromedriver")
+driver = webdriver.Chrome(executable_path="C:\Repos\LearningSelenium\chromedriver.exe")
 driver.get('https://rahulshettyacademy.com/seleniumPractise/#/')
 
 wait = WebDriverWait(driver, 10) # Pass driver and number of seconds to wait

@@ -3,7 +3,6 @@
 # This comes in handy when you're unable to locate something using Selenium
 
 from selenium import webdriver
-from selenium.webdriver.support.select import Select
 from webdriver_manager.chrome import ChromeDriverManager
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
